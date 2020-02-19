@@ -63,7 +63,7 @@ const clearCache = () => {
     })
 }
 
-const proccessImage = () => {
+const proccessImage = (options) => {
     if (!fs.existsSync(CACHE_DIR)) {
         fs.mkdirSync(CACHE_DIR)
     }
@@ -73,7 +73,14 @@ const proccessImage = () => {
     getImageFiles(CACHE_DIR).map(item => {
         saveImage(item)
     })
-    clearCache()
+
+    if (!options.saveCache) {
+        clearCache()
+    }
 }
 
-proccessImage()
+options = {
+    saveCache: false
+}
+
+proccessImage(options)
