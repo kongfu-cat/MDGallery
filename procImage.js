@@ -31,7 +31,7 @@ const saveImage = (src) => {
 }
 
 const getImageFiles = (url) => {
-    const IMAGE_EXT = ['.jpg', '.jpeg', '.png', '.avg']
+    const IMAGE_EXT = ['.jpg', '.jpeg', '.png', '.svg', '.gif', '.bmp', '.raw']
     return fs.readdirSync(url).map(item => {
         if (IMAGE_EXT.indexOf(path.extname(item).toLowerCase()) != -1) {
             return path.join(url, item)
